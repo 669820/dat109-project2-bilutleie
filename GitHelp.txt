@@ -1,1 +1,18 @@
 Hilsen Rudi Nathaniel Stødle
+
+send code to git:
+	høyre click prosjekt
+		Teams
+			Commit...
+				skriv kommentar
+					"Commit and Push"
+					
+	husk å trykke på grønn "+" om du lager nye klasser som skal være med på commiten
+
+get code from git:
+	høyre click prosjekt
+		Teams
+			Fetsh from Origin
+	høyre click prosjekt
+		Teams
+			Pull (uten prikker)

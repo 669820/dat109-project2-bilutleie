@@ -10,6 +10,7 @@ public class Reservasjon {
 	private Kunde kunde;
 	private String leieDato;
 	private int antallDager;
+	private int antall;
 
 	/**
 	 * Constructor to create a reservation.
@@ -67,6 +68,10 @@ public class Reservasjon {
 
 	public void setAntallDager(int antallDager) {
 		this.antallDager = antallDager;
+	}
+	
+	public int getReservasjoner() {
+		return antall;
 	}
 	
 	@Override

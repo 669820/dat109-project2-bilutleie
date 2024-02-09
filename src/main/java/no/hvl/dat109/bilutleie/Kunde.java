@@ -31,4 +31,33 @@ public class Kunde {
 	public String toString() {
 	    return "Kunde: " + fornavn + " " + etternavn + ", Adresse: " + adresse + ", Telefon: " + telefon;
 	}
+
+	public String getFornavn() {
+		return fornavn;
+	}
+
+	public void setFornavn(String fornavn) {
+		this.fornavn = fornavn;
+	}
+
+	public String getEtternavn() {
+		return etternavn;
+	}
+
+	public void setEtternavn(String etternavn) {
+		this.etternavn = etternavn;
+	}
+
+	public String getTelefon() {
+		return telefon;
+	}
+
+	public void setTelefon(String telefon) {
+		this.telefon = telefon;
+	}
+	
+	//ikke riktig, men for testing.
+	public String getKunder() {
+		return fornavn + " " + etternavn + ", tlf: " + telefon;
+	}
 }

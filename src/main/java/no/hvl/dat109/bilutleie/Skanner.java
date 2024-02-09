@@ -6,7 +6,7 @@ public class Skanner {
 
 	Scanner scanner;
 	Adresse adresse = new Adresse(null, null, null);
-	Firma firma = new Firma();
+	Firma firma = getFirma();
 	Kontor kontor = new Kontor(null, null, adresse);
 	Bil bil = new Bil(null, null, null, null, null); 
 	Kunde kunde = new Kunde(null, null, adresse, null);

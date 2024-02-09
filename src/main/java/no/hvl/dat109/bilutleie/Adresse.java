@@ -23,6 +23,34 @@ public class Adresse {
 	}
 
 	// Getters and setters...
+	public String getGateadresse() {
+		return gateadresse;
+	}
+
+	public void setGateadresse(String gateadresse) {
+		this.gateadresse = gateadresse;
+	}
+
+	public String getPostnummer() {
+		return postnummer;
+	}
+
+	public void setPostnummer(String postnummer) {
+		this.postnummer = postnummer;
+	}
+
+	public String getPoststed() {
+		return poststed;
+	}
+
+	public void setPoststed(String poststed) {
+		this.poststed = poststed;
+	}
+	
+	//ikke skikkelig implementert, men funker for testing
+	public String getAdresseListe() {
+		return gateadresse + ", " + postnummer + " " + poststed;
+	}
 	
 	@Override
 	public String toString() {

@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
-Built-By: rudinathanielstodle
-Build-Jdk: 17.0.8.1
+Built-By: Justin
+Build-Jdk: 18.0.2.1
 Implementation-Title: Spring Boot Blank Project (from https://github.com
  /making/spring-boot-blank)
 Implementation-Version: 0.0.1-SNAPSHOT

@@ -10,11 +10,11 @@ class Firma {
 	private Adresse adresse;
 	private List<Kontor> kontorer;
 
-	// Konstruktør
-	public Firma(String navn, String telefon, Adresse adresse) {
-		this.navn = navn;
-		this.telefon = telefon;
-		this.adresse = adresse;
+	// Konstruktør: opprett firma automatisk ettersom bare ett firma trengs
+	public Firma() {
+		navn = "BobsDeling";
+		telefon = "+47 5555 8085";
+		adresse = new Adresse("Bobs gate 32", "8085", "Oslo");
 		this.kontorer = new ArrayList<>();
 	}
 

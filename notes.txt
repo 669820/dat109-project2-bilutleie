@@ -1,4 +1,4 @@
-
+.
 Lag UML notasjon: 
 	brukstilfellemodell med brukstilfellediagram og brukstilfellebeskrivelser
 	domenemodell (klassediagram med konseptuelle klasser)

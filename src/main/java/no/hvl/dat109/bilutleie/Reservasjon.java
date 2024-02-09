@@ -29,6 +29,45 @@ public class Reservasjon {
 	}
 
 	// Getters and setters...
+	public Kontor getUtleiekontor() {
+		return utleiekontor;
+	}
+
+	public void setUtleiekontor(Kontor utleiekontor) {
+		this.utleiekontor = utleiekontor;
+	}
+
+	public Bil getBil() {
+		return bil;
+	}
+
+	public void setBil(Bil bil) {
+		this.bil = bil;
+	}
+
+	public Kunde getKunde() {
+		return kunde;
+	}
+
+	public void setKunde(Kunde kunde) {
+		this.kunde = kunde;
+	}
+
+	public String getLeieDato() {
+		return leieDato;
+	}
+
+	public void setLeieDato(String leieDato) {
+		this.leieDato = leieDato;
+	}
+
+	public int getAntallDager() {
+		return antallDager;
+	}
+
+	public void setAntallDager(int antallDager) {
+		this.antallDager = antallDager;
+	}
 	
 	@Override
 	public String toString() {

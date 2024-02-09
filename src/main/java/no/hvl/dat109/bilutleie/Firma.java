@@ -11,13 +11,14 @@ class Firma {
 	private List<Kontor> kontorer;
 
 	// Konstruktør: opprett firma automatisk ettersom bare ett firma trengs
-	public Firma() {
+	public Firma(String navn, String telefon, Adresse adresse, ArrayList kontorer) {
 		navn = "BobsDeling";
 		telefon = "+47 5555 8085";
 		adresse = new Adresse("Bobs gate 32", "8085", "Oslo");
 		this.kontorer = new ArrayList<>();
 	}
 
+	
 	// Metode for å legge til et utleiekontor til firmaet
 	public void leggTilUtleiekontor(Kontor kontor) {
 		kontorer.add(kontor);

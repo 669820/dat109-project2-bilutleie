@@ -7,7 +7,7 @@ public class Skanner {
 	Scanner scanner = new Scanner(System.in);
 	Adresse adresse = new Adresse(null, null, null);
 	Firma firma = new Firma();
-	Kontor kontor = new Kontor(null, null, adresse);
+	Kontor kontor = new Kontor("Kontor Bergen", "+47 4676521", new Adresse("Gate1", "4837", "Bergen"));
 	Bil bil = new Bil(null, null, null, null, null); 
 	Kunde kunde = new Kunde(null, null, adresse, null);
 	Reservasjon reservasjon = new Reservasjon(kontor, bil, kunde, null, 0);
@@ -67,7 +67,7 @@ public class Skanner {
 				// Implementer logikken for å gjøre reservasjon
 				break;
 			case 5:
-				System.out.println(firma + "\n");
+				System.out.println(firma.getFirma() + "\n");
             	System.out.println(adresse + "\n");
 				System.out.println(kontor + "\n");
         		System.out.println(bil + "\n");

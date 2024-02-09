@@ -23,6 +23,10 @@ class Firma {
 		kontorer.add(kontor);
 	}
 	
+    public Firma getFirma() {
+        return this;
+    }
+	
 	@Override
 	public String toString() {
 	    return "Firma: " + navn + ", Telefon: " + telefon + ", Adresse: " + adresse;

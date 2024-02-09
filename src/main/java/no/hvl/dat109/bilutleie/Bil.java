@@ -11,6 +11,7 @@ public class Bil {
 	private String farge;
 	private String gruppe;
 	private boolean ledig;
+	private int KM;
 
 	/**
 	 * Constructor to create a car.
@@ -28,6 +29,7 @@ public class Bil {
 		this.farge = farge;
 		this.gruppe = gruppe;
 		this.ledig = true;
+		this.KM = 0;
 	} //Kan bruke enum for gruppe
 
 	// Getters and setters...
@@ -36,5 +38,18 @@ public class Bil {
 	public String toString() {
 	    return "Bil: Registreringsnummer: " + registreringsnummer 
 	    		+ ", Merke: " + merke + ", Modell: " + modell + ", Farge: " + farge + ", Gruppe: " + gruppe;
+	}
+
+	public int getKM() {
+		
+		return this.KM;
+	}
+	public void setKM(int km) {
+		this.KM = km;
+	}
+
+	public void setLedig() {
+		this.ledig = true;
+		
 	}
 }

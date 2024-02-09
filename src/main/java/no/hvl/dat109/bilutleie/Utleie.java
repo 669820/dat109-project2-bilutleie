@@ -6,7 +6,6 @@ public class Utleie {
 
 	private int utleieID;
 	private Reservasjon reservasjon;
-	private int startKilometer;
 	private int sluttKilometer;
 	private LocalDate returDato;
 	private int pris;
@@ -17,16 +16,16 @@ public class Utleie {
 	/*
 	 * Konstruktør
 	 */
-	public Utleie(Reservasjon reservasjon, int startKilometer, int pris) {
+	public Utleie(Reservasjon reservasjon, int pris) {
 		this.utleieID = teller++;
 		this.reservasjon = reservasjon;
-		this.startKilometer = startKilometer;
 		this.pris = pris;
 	}
 	
 	public void registrerRetur(int utleieID) {
 		returDato = LocalDate.now();
 		//Fikse logikk for å avslutte reservasjon
+		reservasjon.avsluttReservasjon(returDato, sluttKilometer);
 	}
 	
 	 

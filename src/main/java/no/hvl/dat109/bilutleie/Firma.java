@@ -2,6 +2,7 @@ package no.hvl.dat109.bilutleie;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 // Klassen som representerer et firma
 class Firma {
@@ -28,7 +29,30 @@ class Firma {
 		this.kontor.add(kontorNy);
 	}
 	
-	
+	/**
+	 * Opprettelse av kontor
+	 */
+	public Kontor leggTilNyttKontor() {
+		Scanner scanner = new Scanner(System.in);
+		
+		// Implementer logikken for å legge til et nytt kontor
+		System.out.println("Skriv navn på kontor (eksempel 'Bergen' for kontor i Bergen):");
+		String navn = scanner.nextLine();
+		System.out.println("Skriv inn kontorets telefonnummer:");
+		String telefon = scanner.nextLine();
+		System.out.println("Skriv inn kontorets gateadresse:");
+		String gateadresse = scanner.nextLine();
+		System.out.println("Skriv inn kontorets postnummer:");
+		String postnummer = scanner.nextLine();
+		System.out.println("Skriv inn kontorets poststed:");
+		String poststed = scanner.nextLine();
+
+		Kontor kontorNy = new Kontor(navn, telefon, new Adresse(gateadresse, postnummer, poststed));
+		leggTilUtleiekontor(kontorNy);
+
+		System.out.println(kontor + "\nOpprettet!");
+		return kontorNy;
+	}
 	
     public Firma getFirma() {
         return this;
@@ -70,9 +94,6 @@ class Firma {
 	public void setKontor(List<Kontor> kontor) {
 		this.kontor = kontor;
 	}
-	
-	
-	
 	
 	
 }

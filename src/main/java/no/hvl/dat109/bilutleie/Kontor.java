@@ -30,7 +30,7 @@ public class Kontor {
 		this.bilerTilgjengelig = new ArrayList<>();
 	}
 	
-    // Metode for å legge til en bil til utleiekontoret
+   
     public void leggTilBil(Bil bil) {
         bilerTilgjengelig.add(bil);
     }

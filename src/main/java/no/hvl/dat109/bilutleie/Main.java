@@ -5,15 +5,14 @@ import java.util.Scanner;
 
 public class Main {
 	// opprett firma automatisk ettersom bare ett firma trengs
-	static Firma firma = new Firma("Gurkemeie Bilutleie", "+47 98764837", 
-			new Adresse("Guremeie gate 32", "8085", "Oslo"));
-
+	static Firma firma;
+	
 	public static void main(String[] args) {
-		Adresse adresse;
-
 		
+		firma =  new Firma("Gurkemeie Bilutleie", "+47 98764837", 
+				new Adresse("Guremeie gate 32", "8085", "Oslo"));
 
-		System.out.println(firma);
+		System.out.println(firma.toString());
 
 		skanner();
 
@@ -26,12 +25,14 @@ public class Main {
 		Bil bil;
 		Kunde kunde;
 		Reservasjon reservasjon;
+		
 		while (true) {
-
 			System.out.println("Velg en handling:\n" 
 					+ "1. Opprett nytt kontor \n" 
 					+ "2. Empty \n"
-					+ "3. Empty - Registrer ny bil \n" + "4. Empty - Gjoer reservasjon" + "5. Skriv ut informasjon"
+					+ "3. Empty - Registrer ny bil \n" 
+					+ "4. Empty - Gjoer reservasjon" 
+					+ "5. Skriv ut informasjon\n"
 					+ "0. Avslutt");
 
 			int valg = scanner.nextInt();
@@ -39,39 +40,17 @@ public class Main {
 
 			switch (valg) {
 			case 1:
-				firma.leggTilUtleiekontor(null);
+				kontor = firma.leggTilNyttKontor();
 
-				System.out.println(kontor + "\nOpprettet!");
+				System.out.println(kontor.toString() + "\nOpprettet!");
 				break;
 
-			case 2:
-				if (kontor == null) {
-					System.out.println("Du må opprette et kontor foerst.");
-					break;
-				}
-
-				break;
-			case 3:
-				if (kontor == null) {
-					System.out.println("Du må opprette et kontor foerst.");
-					break;
-				}
-				// Implementer logikken for å registrere en ny bil
-				break;
-			case 4:
-				if (kontor == null) {
-					System.out.println("Du må opprette et kontor foerst.");
-					break;
-				}
-				// Implementer logikken for å gjøre reservasjon
-				break;
 			case 5:
 				System.out.println(firma.getFirma() + "\n");
-				System.out.println(adresse.getAdresseListe() + "\n");
 				System.out.println(firma.getKontor() + "\n");
-				System.out.println(kontor.getBilerTilgjengelig() + "\n");
-				System.out.println(kunde.getKunder() + "\n");
-				System.out.println(reservasjon.getReservasjoner());
+				//skrivUtBiler()
+				//SkrivUtKunder()
+				//skrivUtReservasjoner()
 				break;
 			case 0:
 				System.out.println("Avslutter programmet.");

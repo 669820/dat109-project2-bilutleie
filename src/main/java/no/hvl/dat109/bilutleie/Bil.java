@@ -47,9 +47,55 @@ public class Bil {
 	public void setKM(int km) {
 		this.KM = km;
 	}
+	
+	public String getRegistreringsnummer() {
+		return registreringsnummer;
+	}
+
+	public void setRegistreringsnummer(String registreringsnummer) {
+		this.registreringsnummer = registreringsnummer;
+	}
+
+	public String getMerke() {
+		return merke;
+	}
+
+	public void setMerke(String merke) {
+		this.merke = merke;
+	}
+
+	public String getModell() {
+		return modell;
+	}
+
+	public void setModell(String modell) {
+		this.modell = modell;
+	}
+
+	public String getFarge() {
+		return farge;
+	}
+
+	public void setFarge(String farge) {
+		this.farge = farge;
+	}
+
+	public String getGruppe() {
+		return gruppe;
+	}
+
+	public void setGruppe(String gruppe) {
+		this.gruppe = gruppe;
+	}
+
+	public boolean erLedig() {
+		return ledig;
+	}
 
 	public void setLedig() {
 		this.ledig = true;
-		
 	}
+
+
+	
 }

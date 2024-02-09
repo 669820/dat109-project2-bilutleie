@@ -35,7 +35,21 @@ public class Kontor {
         bilerTilgjengelig.add(bil);
     }
 
-    
+    /**
+     * remove skal fjerne korrekt "bil"(bil oppgitt i parameter)
+     * fra "bilerTilgjengelig" basert på 
+     * java sin standard equals-metode på objekter, og ikke bare første 
+     * objekt i "bilerTilgjengelig-arrayet".
+     * @param bil
+     */
+    public void bilUt(Bil bil) {
+    	if(bil.erLedig()) {
+    		bil.setLedig(false);
+    		bilerTilgjengelig.remove(bil);
+    	}else {
+    		throw new IllegalStateException("Bilen er allerede utleid");
+    	}
+    }
     
 	// Getters and setters...
     

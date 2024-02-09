@@ -35,10 +35,62 @@ public class Kontor {
         bilerTilgjengelig.add(bil);
     }
 
+    
+    
 	// Getters and setters...
     
     @Override
     public String toString() {
         return "Kontor " + kontorNummer + ": " + navn + ", Telefon: " + telefon + ", Adresse: " + adresse;
     }
+
+	public String getNavn() {
+		return navn;
+	}
+
+	public void setNavn(String navn) {
+		this.navn = navn;
+	}
+
+	public String getTelefon() {
+		return telefon;
+	}
+
+	public void setTelefon(String telefon) {
+		this.telefon = telefon;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public static int getKontorNummerCounter() {
+		return kontorNummerCounter;
+	}
+
+	public static void setKontorNummerCounter(int kontorNummerCounter) {
+		Kontor.kontorNummerCounter = kontorNummerCounter;
+	}
+
+	public int getKontorNummer() {
+		return kontorNummer;
+	}
+
+	public void setKontorNummer(int kontorNummer) {
+		this.kontorNummer = kontorNummer;
+	}
+
+	public List<Bil> getBilerTilgjengelig() {
+		return bilerTilgjengelig;
+	}
+
+	public void setBilerTilgjengelig(List<Bil> bilerTilgjengelig) {
+		this.bilerTilgjengelig = bilerTilgjengelig;
+	}
+    
+    
 }

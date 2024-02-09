@@ -28,12 +28,13 @@ public class Bil {
 		this.farge = farge;
 		this.gruppe = gruppe;
 		this.ledig = true;
-	}
+	} //Kan bruke enum for gruppe
 
 	// Getters and setters...
 	
 	@Override
 	public String toString() {
-	    return "Bil: Registreringsnummer: " + registreringsnummer + ", Merke: " + merke + ", Modell: " + modell + ", Farge: " + farge + ", Gruppe: " + gruppe;
+	    return "Bil: Registreringsnummer: " + registreringsnummer 
+	    		+ ", Merke: " + merke + ", Modell: " + modell + ", Farge: " + farge + ", Gruppe: " + gruppe;
 	}
 }

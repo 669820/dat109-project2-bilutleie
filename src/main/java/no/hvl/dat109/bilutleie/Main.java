@@ -9,7 +9,7 @@ public class Main {
 
         //opprett firma automatisk ettersom bare ett firma trengs
         Firma firma = new Firma("Gurkemeie Bilutleie", "+47 98764837", 
-        		new Adresse("Guremeie gate 32", "8085", "Oslo"), new ArrayList<>());
+        		new Adresse("Guremeie gate 32", "8085", "Oslo"));
         
         
         

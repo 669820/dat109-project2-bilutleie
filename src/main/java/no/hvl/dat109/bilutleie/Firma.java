@@ -8,21 +8,27 @@ class Firma {
 	private String navn;
 	private String telefon;
 	private Adresse adresse;
-	private List<Kontor> kontorer;
+	private List<Kontor> kontor;
 
-	// Konstruktør: opprett firma automatisk ettersom bare ett firma trengs
-	public Firma(String navn, String telefon, Adresse adresse, ArrayList kontorer) {
-		navn = "BobsDeling";
-		telefon = "+47 5555 8085";
-		adresse = new Adresse("Bobs gate 32", "8085", "Oslo");
-		this.kontorer = new ArrayList<>();
+	/**
+	 * 
+	 * @param navn
+	 * @param telefon
+	 * @param adresse
+	 */
+	public Firma(String navn, String telefon, Adresse adresse) {
+		this.navn = navn;
+		this.telefon = telefon;
+		this.adresse = adresse;
+		this.kontor = new ArrayList<Kontor>();
 	}
 
 	
-	// Metode for å legge til et utleiekontor til firmaet
-	public void leggTilUtleiekontor(Kontor kontor) {
-		kontorer.add(kontor);
+	public void leggTilUtleiekontor(Kontor kontorNy) {
+		this.kontor.add(kontorNy);
 	}
+	
+	
 	
     public Firma getFirma() {
         return this;
@@ -32,4 +38,41 @@ class Firma {
 	public String toString() {
 	    return "Firma: " + navn + ", Telefon: " + telefon + ", Adresse: " + adresse;
 	}
+
+	public String getNavn() {
+		return navn;
+	}
+
+	public void setNavn(String navn) {
+		this.navn = navn;
+	}
+
+	public String getTelefon() {
+		return telefon;
+	}
+
+	public void setTelefon(String telefon) {
+		this.telefon = telefon;
+	}
+
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
+
+	public List<Kontor> getKontor() {
+		return kontor;
+	}
+
+	public void setKontor(List<Kontor> kontor) {
+		this.kontor = kontor;
+	}
+	
+	
+	
+	
+	
 }

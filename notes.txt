@@ -1,0 +1,50 @@
+
+Lag UML notasjon: 
+	brukstilfellemodell med brukstilfellediagram og brukstilfellebeskrivelser
+	domenemodell (klassediagram med konseptuelle klasser)
+	sekvensdiagram
+	klassediagram
+	
+kode med dokumentasjon(kommentarer)
+enhetstetser
+
+program:
+	firma/kontorer:
+	nytt firma etabvleres i norge (alle storbyer og større flyplasser)
+	for selskapet skall det registreres: navn, tlf, firma-adresse
+	utleiekontor nummereres fortløpende med eget kontor-nummer
+	hvert kontro skal registreres adresse og tlf
+	kontorene leier ut og tar imot biler
+	
+	biler:
+	lagre registrerings-nmr, bil.merke (VW), bil-model (gold), farge, gruppe (A (liten), B(middel), C(stor), D(stasjonsvogn), bil-ledig tid
+	ledige biler blir stående på innlevert kontor
+	kun privatpersoner(kunder) kan reservere og leie biler
+	reservasjoner gjøres på nett eller gjennom konsulent i skranken ved kontoret
+	
+	kunder:
+	lagre fornavn, etternavn, adresse, tlf
+	
+	reservasjon av bil:
+	ikke godta reservasjoner for tidspunkt/dato som er passert
+	reservasjon kan først gjøres etter ett søk
+	søk: ønsker utleie/retursted, leie dato/tid, antall dager for ønsket leie
+	resultat: tilgjengelige kategorier, pris for hver kategorie
+	pris er fast dagspris per kategorie uten hensyn på km eller rabatter
+	returgebyr (om man leverer til anna kontor)
+	
+	ved faktisk utleie:
+	registrer: kredittkort med nummer, reg-nmr på bil, km stand, dato/tid for utleie, dato/tid for forventet innlevering
+	
+	retur:
+	registrer: dato/tid, ny km stand, regning
+	
+	for at systemet skal fungere er det nødvendig med funksjonalitet for å kunne opprette utleiekontor, biler osv
+	ekstra attributer om vi føler det er nødvendig
+	unngå ekstra komplisering eller funksjoner utover oppgaven
+	begunn eventuelle avgrensninger som gjøres
+	
+	alle adresser består av: gateadresse, post-nmr, poststed
+	
+	tips: gå på ekte utleie firma og test deiras system (AVIS, Hertz, Sixt, Europcar, Budget, Bergen Bilutleie, ...)
+	

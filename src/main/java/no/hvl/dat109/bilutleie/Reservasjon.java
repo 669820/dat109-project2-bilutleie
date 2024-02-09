@@ -1,15 +1,16 @@
 package no.hvl.dat109.bilutleie;
 
+import java.time.LocalDate;
+
 //Reservasjon.java
 /**
  * Represents a reservation of a car.
  */
 public class Reservasjon {
-	private static int id = 1001;
 	private Kontor utleiekontor;
 	private Bil bil;
 	private Kunde kunde;
-	private String leieDato;
+	private LocalDate leieDato;
 	private int antallDager;
 	private int antall;
 
@@ -22,12 +23,11 @@ public class Reservasjon {
 	 * @param leieDato     The rental date for the reservation.
 	 * @param antallDager  The number of rental days for the reservation.
 	 */
-	public Reservasjon(int id, Kontor utleiekontor, Bil bil, Kunde kunde, String leieDato, int antallDager) {
-		this.id = id;
+	public Reservasjon(Kontor utleiekontor, Bil bil, Kunde kunde, int antallDager) {
 		this.utleiekontor = utleiekontor;
 		this.bil = bil;
 		this.kunde = kunde;
-		this.leieDato = leieDato;
+		this.leieDato = LocalDate.now();
 		this.antallDager = antallDager;
 	}
 
@@ -36,33 +36,18 @@ public class Reservasjon {
 		return utleiekontor;
 	}
 
-	public void setUtleiekontor(Kontor utleiekontor) {
-		this.utleiekontor = utleiekontor;
-	}
-
 	public Bil getBil() {
 		return bil;
-	}
-
-	public void setBil(Bil bil) {
-		this.bil = bil;
 	}
 
 	public Kunde getKunde() {
 		return kunde;
 	}
 
-	public void setKunde(Kunde kunde) {
-		this.kunde = kunde;
-	}
-
-	public String getLeieDato() {
+	public LocalDate getLeieDato() {
 		return leieDato;
 	}
 
-	public void setLeieDato(String leieDato) {
-		this.leieDato = leieDato;
-	}
 
 	public int getAntallDager() {
 		return antallDager;
@@ -72,19 +57,6 @@ public class Reservasjon {
 		this.antallDager = antallDager;
 	}
 	
-	public Reservasjon getAlleReservasjoner() {
-		return this;
-	}
-	
-	public Reservasjon getReservasjoner(int id) {
-		for(int i = 0; i<Reservasjon.length; i++) {
-			if(id =! getId) {
-				i++;
-			}else {
-				return this;
-			}
-		}
-	}
 	
 	@Override
 	public String toString() {

@@ -1,6 +1,5 @@
 package no.hvl.dat109.bilutleie;
 
-import java.sql.Date;
 import java.time.LocalDate;
 
 public class Utleie {

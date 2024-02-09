@@ -31,8 +31,8 @@ public class Main {
 					+ "1. Opprett nytt kontor \n" 
 					+ "2. Empty \n"
 					+ "3. Empty - Registrer ny bil \n" 
-					+ "4. Empty - Gjoer reservasjon" 
-					+ "5. Skriv ut informasjon\n"
+					+ "4. Empty - Gjoer reservasjon \n" 
+					+ "5. Skriv ut informasjon \n"
 					+ "0. Avslutt");
 
 			int valg = scanner.nextInt();
@@ -48,9 +48,9 @@ public class Main {
 			case 5:
 				System.out.println(firma.getFirma() + "\n");
 				System.out.println(firma.getKontor() + "\n");
-				//skrivUtBiler()
-				//SkrivUtKunder()
-				//skrivUtReservasjoner()
+				System.out.println("Ledige biler: " + kontor.getBilerTilgjengelig() + "\n");
+				System.out.println(kunde.getAlleKunder() + "\n");
+				System.out.println(reservasjon.getAlleReservasjoner() + "\n");
 				break;
 			case 0:
 				System.out.println("Avslutter programmet.");

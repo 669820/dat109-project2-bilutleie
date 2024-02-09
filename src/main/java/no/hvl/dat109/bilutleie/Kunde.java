@@ -57,7 +57,7 @@ public class Kunde {
 	}
 	
 	//ikke riktig, men for testing.
-	public String getKunder() {
+	public String getAlleKunder() {
 		return fornavn + " " + etternavn + ", tlf: " + telefon;
 	}
 }

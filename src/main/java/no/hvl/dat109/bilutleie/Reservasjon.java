@@ -5,6 +5,7 @@ package no.hvl.dat109.bilutleie;
  * Represents a reservation of a car.
  */
 public class Reservasjon {
+	private static int id = 1001;
 	private Kontor utleiekontor;
 	private Bil bil;
 	private Kunde kunde;
@@ -21,7 +22,8 @@ public class Reservasjon {
 	 * @param leieDato     The rental date for the reservation.
 	 * @param antallDager  The number of rental days for the reservation.
 	 */
-	public Reservasjon(Kontor utleiekontor, Bil bil, Kunde kunde, String leieDato, int antallDager) {
+	public Reservasjon(int id, Kontor utleiekontor, Bil bil, Kunde kunde, String leieDato, int antallDager) {
+		this.id = id;
 		this.utleiekontor = utleiekontor;
 		this.bil = bil;
 		this.kunde = kunde;
@@ -70,8 +72,18 @@ public class Reservasjon {
 		this.antallDager = antallDager;
 	}
 	
-	public int getReservasjoner() {
-		return antall;
+	public Reservasjon getAlleReservasjoner() {
+		return this;
+	}
+	
+	public Reservasjon getReservasjoner(int id) {
+		for(int i = 0; i<Reservasjon.length; i++) {
+			if(id =! getId) {
+				i++;
+			}else {
+				return this;
+			}
+		}
 	}
 	
 	@Override

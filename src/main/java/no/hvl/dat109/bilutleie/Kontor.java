@@ -38,12 +38,13 @@ public class Kontor {
 		this.utleier = new ArrayList<>();
 	}
 	
-	
+
     public void opprettUtleie(Reservasjon reservasjon, Bil bil) {
     	if(reserverBil(bil)) {
     	Utleie utleie = new Utleie(reservasjon);
     	utleier.add(utleie);
-
+    	alleReservasjoner.add(reservasjon);
+    	System.out.println("Reservasjon med ID: " + reservasjon.getID() + " er opprettet for kunde: " + reservasjon.getKunde().toString());
     	}
     }
 	
@@ -52,6 +53,8 @@ public class Kontor {
 		
 		alleReservasjoner.remove(reservasjon);
 		utleier.remove(finnUtleie(reservasjon.getID()));
+		double regning = finnUtleie(reservasjon.getID()).sendRegning();
+		System.out.println("Kunde: " + reservasjon.getKunde().getFornavn() + " " + reservasjon.getKunde().getEtternavn() + " får regnig på kr: " + regning);
 	}
 
 	
@@ -79,6 +82,10 @@ public class Kontor {
     
 	// Getters and setters...
     
+	public void leggTilBil(Bil bil) {
+        bilerTilgjengelig.add(bil);
+    }
+	
     @Override
     public String toString() {
         return "Kontor " + kontorNummer + ": " + navn + ", Telefon: " + telefon + ", Adresse: " + adresse;

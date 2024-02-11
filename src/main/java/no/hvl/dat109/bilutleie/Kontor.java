@@ -1,7 +1,10 @@
 package no.hvl.dat109.bilutleie;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import no.hvl.dat109.bilutleie.biler.Bil;
 
@@ -14,8 +17,8 @@ public class Kontor {
 	private String telefon;
 	private Adresse adresse;
 	private int kontorNummer;
-	private List<Bil> bilerTilgjengelig;
-	private List<Reservasjon> alleReservasjoner;
+	private List<Bil> bilerTilgjengelig; //Her ligger all biler tilgjenlig nå
+	private List<Reservasjon> alleReservasjoner; //Her ligger biler som er foreløpig utleid
 	private List<Utleie> utleier;
 
 	//Teller for kontor ID
@@ -79,6 +82,22 @@ public class Kontor {
 	            .findFirst()
 	            .orElse(null);
 	}
+	
+	
+	public List<Bil> finnBilerFra(LocalDate dato) {
+		
+        List<Bil> tilgjengeligeBiler = new ArrayList<>(bilerTilgjengelig); // Starter med alle biler som grunnlag
+
+        
+        // Legger til biler som blir tilgjengelige etter den angitte datoen, basert på sluttdatoer for reservasjoner
+        for (Reservasjon reservasjon : alleReservasjoner) {
+            if (reservasjon.getLeieSluttDato().isBefore(dato) || reservasjon.getLeieSluttDato().isEqual(dato)) {
+                    tilgjengeligeBiler.add(reservasjon.getBil());
+                }
+            }
+        return tilgjengeligeBiler;
+	}
+	
     
 	// Getters and setters...
     
@@ -136,4 +155,5 @@ public class Kontor {
             System.out.println(reservation.getBil());
         }
     }
+
 }

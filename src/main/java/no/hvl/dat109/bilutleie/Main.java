@@ -89,22 +89,13 @@ public class Main {
 		}
 		velkommen += kontorString +  "\nTast nummer for hvilket kontor du velger for å fortsette";	
 			
-		//for(Kunde x : kunder) {
+		for(Kunde kunde : kunder) {
 			System.out.println(velkommen);
-			int valg1 = scanner.nextInt();
-			
-			/*
-			 * 1. kontor retur, 
-			   2. dato og klokkeslett for utlei, 
-			   3. antall dager, 
-			   4. oppgi alle biler tilgjenlig i den perioden + pris for biler(dagspris) + totalpris, 
-			   5. velg bil, 
-			   6. opprett reservasjon
-			*/
+			int kontorValg = scanner.nextInt();
 			
 			//registrere returkontor
 			System.out.println("Tast inn nummer på det kontoret du ønsker å returnere din bil til: " + kontorString);
-			int valg2 = scanner.nextInt();
+			int returkontor = scanner.nextInt();
 			
 			//Registrer dato for utleie
 	        System.out.println("Vennligst oppgi en dato i formatet ÅÅÅÅ-MM-DD (for eksempel 2024-12-24) for når du ønsker å leie: ");
@@ -115,8 +106,27 @@ public class Main {
 	        System.out.println("Hvor mange dager ønsker du å leie bilen ?");
 	        int antallDager = scanner.nextInt();
 	        System.out.println(antallDager);
-		//}
+	        
+	        
+	        //Liste ut alle tilgjengelige biler med pris
+	        List<Bil> ledigBiler = finnLedigBiler(dato, kontorValg);
+	        String bilerOgPris = "";
+	        for(int i = 0; i < ledigBiler.size(); i++) {
+	        	Bil x = ledigBiler.get(i);
+	        	bilerOgPris += "\n " + (i+1) + x.toString() + ". Med en dagspris på: " + x.hentPris() + ". Totaltpris: " + antallDager*x.hentPris();
+	        }
+	        System.out.println("Velg en bil du ønsker: (Tast nummer til bilen) \n" + bilerOgPris);
+	        int bil = scanner.nextInt();
+	        
+	        Reservasjon reservasjon = new Reservasjon(firma.getKontor().get(kontorValg), ledigBiler.get(bil), kunde, dato, antallDager);
+	        System.out.println("Takk for din bestilling " + kunde.getFornavn() + " " + kunde.getEtternavn());
+		}
 		
+		
+	}
+
+	private static List<Bil> finnLedigBiler(LocalDate dato, int kontor) {
+		return firma.getKontor().get(kontor).finnBilerFra(dato);
 		
 	}
  	

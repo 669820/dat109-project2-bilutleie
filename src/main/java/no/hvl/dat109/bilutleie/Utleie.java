@@ -17,21 +17,6 @@ public class Utleie {
 	//Teller for identifikator
 	private static int teller = 1;
 	
-	/*
-	 * Konstruktør
-	 */
-//	public Utleie(Reservasjon reservasjon, int pris) {
-//		this.utleieID = teller++;
-//		this.reservasjon = reservasjon;
-//		this.pris = pris;
-//	}
-//	
-//	public void registrerRetur(int utleieID) {
-//		returDato = LocalDate.now();
-//		//Fikse logikk for å avslutte reservasjon
-//		reservasjon.avsluttReservasjon(returDato, sluttKilometer);
-//	}
-	
 	
 	public Utleie(Reservasjon reservasjon, int startKilometer) {
 	    this.utleieID = teller++;

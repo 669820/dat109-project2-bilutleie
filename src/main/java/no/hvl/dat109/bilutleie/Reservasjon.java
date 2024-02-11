@@ -3,6 +3,8 @@ package no.hvl.dat109.bilutleie;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+import no.hvl.dat109.bilutleie.biler.Bil;
+
 //Reservasjon.java
 /**
  * Represents a reservation of a car.
@@ -15,7 +17,6 @@ public class Reservasjon {
 	private LocalDate leieStartDato;
 	private LocalDate leieSluttDato;
 	private int antallDager;
-	private int km_kjoert;
 	private int antallDagerLaant;
 	
 	private static int teller = 1;
@@ -43,8 +44,7 @@ public class Reservasjon {
 	 */
 	public void avsluttReservasjon(LocalDate returDato, int sluttKilometer) {
 		this.leieSluttDato = returDato;
-		this.km_kjoert = sluttKilometer - bil.getKM();
-		this.bil.setLedig();
+		this.bil.setLedig();;
 		this.antallDagerLaant = (int)ChronoUnit.DAYS.between(leieSluttDato, returDato);
 	}
 	
@@ -80,14 +80,6 @@ public class Reservasjon {
 	}
 
 	
-//	@Override
-//	public String toString() {
-//	    return "Reservasjon: Kunde: " + kunde + 
-//	    		"\nBil: " + bil + 
-//	    		"\nLeie dato: " + leieDato + 
-//	    		"\nAntall dager: " + antallDager;
-//	}
-
 
 
 }

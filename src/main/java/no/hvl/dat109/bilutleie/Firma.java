@@ -47,6 +47,7 @@ class Firma {
 		System.out.println("Skriv inn kontorets poststed:");
 		String poststed = scanner.nextLine();
 
+		scanner.close();
 		Kontor kontorNy = new Kontor(navn, telefon, new Adresse(gateadresse, postnummer, poststed));
 		leggTilUtleiekontor(kontorNy);
 

@@ -3,6 +3,8 @@ package no.hvl.dat109.bilutleie;
 import java.util.ArrayList;
 import java.util.List;
 
+import no.hvl.dat109.bilutleie.biler.Bil;
+
 //Kontor.java
 /**
  * Represents an office for the car rental company.

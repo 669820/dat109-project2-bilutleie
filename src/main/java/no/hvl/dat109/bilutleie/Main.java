@@ -10,7 +10,7 @@ public class Main {
 	static Firma firma;
 	
 	public static void main(String[] args) {
-		
+		//test git
 		
         Adresse adresse = new Adresse("Gateveien 1", "5000", "Bergen");
 

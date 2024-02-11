@@ -9,7 +9,6 @@ public class Kunde {
 	private String etternavn;
 	private Adresse adresse;
 	private String telefon;
-	private Reservasjon reservasjon; // fikser denne 
 
 	/**
 	 * Constructor to create a customer.

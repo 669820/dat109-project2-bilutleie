@@ -13,7 +13,8 @@ public class Main {
 		//test git
 		
         Adresse adresse = new Adresse("Gateveien 1", "5000", "Bergen");
-
+        firma = new Firma("test", "+47 98765432", adresse);
+        
         Kontor bergenKontor = new Kontor("Bergen Kontor", "55512345", adresse);
         Bil bil = new BilA("AB12345", "Toyota", "Yaris", "Blå");
         bergenKontor.leggTilBil(bil);
@@ -40,6 +41,7 @@ public class Main {
         utleie.registrerRetur(faktiskSluttKilometer, faktiskReturDato);
         
         System.out.println("Regning for utleie: " + utleie.sendRegning() + " kr " + "\nSendt til " + kunde.toString());
+        bergenKontor.visAlleBiler();
         
 	}
 	

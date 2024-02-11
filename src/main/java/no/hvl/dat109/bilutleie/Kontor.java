@@ -16,9 +16,10 @@ public class Kontor {
 	private int kontorNummer;
 	private List<Bil> bilerTilgjengelig;
 	private List<Reservasjon> alleReservasjoner;
+	private List<Utleie> utleier;
 
 	//Teller for kontor ID
-	private static int kontorNummerCounter = 1;
+	private static int teller = 1;
 	
 	/**
 	 * Constructor to create an office.
@@ -31,36 +32,42 @@ public class Kontor {
 		this.navn = navn;
 		this.telefon = telefon;
 		this.adresse = adresse;
-		this.kontorNummer = kontorNummerCounter++;
+		this.kontorNummer = teller++;
 		this.bilerTilgjengelig = new ArrayList<>();
 		this.alleReservasjoner = new ArrayList<>();
+		this.utleier = new ArrayList<>();
 	}
 	
-   
-    public void leggTilBil(Bil bil) {
-        bilerTilgjengelig.add(bil);
-    }
+	
+    public void opprettUtleie(Reservasjon reservasjon, Bil bil) {
+    	if(reserverBil(bil)) {
+    	Utleie utleie = new Utleie(reservasjon);
+    	utleier.add(utleie);
 
-    /**
-     * remove skal fjerne korrekt "bil"(bil oppgitt i parameter)
-     * fra "bilerTilgjengelig" basert på 
-     * java sin standard equals-metode på objekter, og ikke bare første 
-     * objekt i "bilerTilgjengelig-arrayet".
-     * @param bil
-     */
-    public void reserverBil(Bil bil) {
+    	}
+    }
+	
+	public void avsluttUtleie(Reservasjon reservasjon) {
+		bilerTilgjengelig.add(reservasjon.getBil());
+		
+		alleReservasjoner.remove(reservasjon);
+		utleier.remove(finnUtleie(reservasjon.getID()));
+	}
+
+	
+	public Utleie finnUtleie(int id) {
+		return utleier.stream().filter(u -> u.getID() == id).findFirst().orElse(null);
+	}
+	
+	
+
+    public boolean reserverBil(Bil bil) {
     	if(bil.erLedig()) {
     		bil.setOpptatt();
     		bilerTilgjengelig.remove(bil);
-    	}else {
-    		throw new IllegalStateException("Bilen er allerede utleid"); // MÅ kanskje fikses slik am man kan få mulighet til å velge en annen bil
+    		return true;
     	}
-    }
-    
-    
-
-	public void leggTilReservasjon(Reservasjon reservasjon) {
-        alleReservasjoner.add(reservasjon);
+    	return false;
     }
 	
 	public Reservasjon finnReservasjon(int reservasjonID) {
@@ -101,29 +108,25 @@ public class Kontor {
 		this.adresse = adresse;
 	}
 
-	public static int getKontorNummerCounter() {
-		return kontorNummerCounter;
-	}
-
-	public static void setKontorNummerCounter(int kontorNummerCounter) {
-		Kontor.kontorNummerCounter = kontorNummerCounter;
-	}
-
 	public int getKontorNummer() {
-		return kontorNummer;
-	}
-
-	public void setKontorNummer(int kontorNummer) {
-		this.kontorNummer = kontorNummer;
+		return this.kontorNummer;
 	}
 
 	public List<Bil> getBilerTilgjengelig() {
 		return bilerTilgjengelig;
 	}
 
-	public void setBilerTilgjengelig(List<Bil> bilerTilgjengelig) {
-		this.bilerTilgjengelig = bilerTilgjengelig;
-	}
-    
-    
+	
+
+    public void visAlleBiler() {
+        System.out.println("Ledige biler: ");
+        for (Bil bil : bilerTilgjengelig) {
+            System.out.println(bil); // bruker toString fra Bil.class
+        }
+
+        System.out.println("\nReserverte biler: ");
+        for (Reservasjon reservation : alleReservasjoner) {
+            System.out.println(reservation.getBil());
+        }
+    }
 }

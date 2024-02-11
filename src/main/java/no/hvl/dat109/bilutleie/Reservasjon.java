@@ -18,6 +18,7 @@ public class Reservasjon {
 	private LocalDate leieSluttDato;
 	private int antallDager;
 	private int antallDagerLaant;
+	private boolean aktiv;
 	
 	// Teller for ID
 	private static int teller = 1;
@@ -38,19 +39,33 @@ public class Reservasjon {
 		this.kunde = kunde;
 		this.leieStartDato = leieStartDato;
 		this.leieSluttDato = leieStartDato.plusDays(antallDager);
+		this.aktiv = true;
+		this.antallDagerLaant = 0;
 	}
 	
 	/*
-	 * Regner ut antall km kjørt
+	 * Regner ut antall km kjørt, setter bilen ledig
 	 */
-	public void avsluttReservasjon(LocalDate returDato, int sluttKilometer) {
+	public void avsluttReservasjon(LocalDate returDato) {
 		this.leieSluttDato = returDato;
 		this.bil.setLedig();
 		this.antallDagerLaant = (int)ChronoUnit.DAYS.between(leieSluttDato, returDato);
+		if(antallDagerLaant > antallDager) System.out.println("Lån av bil overskred opprinnelig avtalt dager");
+		this.aktiv = false;
+		utleiekontor.avsluttUtleie(this);
 	}
 	
 
 	// Getters and setters...
+	public Reservasjon getReservasjon() {
+		return this;
+	}
+	
+	public boolean getStatus() {
+		return this.aktiv;
+	}
+	
+	
 	public Kontor getUtleiekontor() {
 		return utleiekontor;
 	}

@@ -3,54 +3,48 @@ package no.hvl.dat109.bilutleie;
 import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 
+import no.hvl.dat109.bilutleie.biler.Bil;
+
 public class Utleie {
 
 	private int utleieID;
 	private Reservasjon reservasjon;
 	private LocalDate utleieDato;
-	private int startKilometer;
 	private LocalDate returDato;
 	private int sluttKilometer;
-	private int pris;
+	private double pris;
 	
 	
-	//Teller for identifikator
-	private static int teller = 1;
 	
 	
-	public Utleie(Reservasjon reservasjon, int startKilometer) {
-	    this.utleieID = teller++;
+	public Utleie(Reservasjon reservasjon) {
+	    this.utleieID = reservasjon.getID();
 	    this.reservasjon = reservasjon;
-	    this.startKilometer = startKilometer;
 	    this.utleieDato = reservasjon.getLeieStartDato();
+	    
 	}
-	
-	public void registrerUtleie(int startKilometer) {
-		this.utleieDato = LocalDate.now();
-		this.startKilometer = startKilometer;
-		reservasjon.getBil().setKM(startKilometer);
-	}
-	
-	
 	
     public void registrerRetur(int sluttKilometer, LocalDate faktiskReturDato) {
-        if(sluttKilometer < startKilometer) {
-            throw new IllegalArgumentException("Slutt kilometerstand kan ikke være mindre enn start kilometerstand.");
-        }
+
         this.sluttKilometer = sluttKilometer;
         this.returDato = faktiskReturDato;
-        int kjorteKilometer = sluttKilometer - startKilometer;
+        int kjorteKilometer = sluttKilometer - reservasjon.getBil().getKM();
+        
         int leiedager = (int) ChronoUnit.DAYS.between(utleieDato, returDato);
         int ekstraDager = (int) ChronoUnit.DAYS.between(reservasjon.getLeieSluttDato(), returDato);
 
-        pris = kjorteKilometer + leiedager * 100 + Math.max(ekstraDager, 0) * 150;
+        pris = leiedager * reservasjon.getBil().hentPris() + Math.max(ekstraDager, 0) * 150;
         reservasjon.getBil().setKM(sluttKilometer); 
-        reservasjon.avsluttReservasjon(returDato, sluttKilometer);
+        reservasjon.avsluttReservasjon(returDato);
+        
     }
 
-    public int sendRegning() {
+    public double sendRegning() {
         return pris;
     }
 	
+    public int getID() {
+    	return this.utleieID;
+    }
 	
 }

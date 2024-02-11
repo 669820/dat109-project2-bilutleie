@@ -19,6 +19,7 @@ public class Reservasjon {
 	private int antallDager;
 	private int antallDagerLaant;
 	
+	// Teller for ID
 	private static int teller = 1;
 
 	/**
@@ -44,7 +45,7 @@ public class Reservasjon {
 	 */
 	public void avsluttReservasjon(LocalDate returDato, int sluttKilometer) {
 		this.leieSluttDato = returDato;
-		this.bil.setLedig();;
+		this.bil.setLedig();
 		this.antallDagerLaant = (int)ChronoUnit.DAYS.between(leieSluttDato, returDato);
 	}
 	

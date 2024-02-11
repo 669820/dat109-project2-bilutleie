@@ -13,11 +13,13 @@ public class Kontor {
 	private String navn;
 	private String telefon;
 	private Adresse adresse;
-	private static int kontorNummerCounter = 1;
 	private int kontorNummer;
 	private List<Bil> bilerTilgjengelig;
-	private List<Reservasjon> alleReservasjoner = new ArrayList<>();
+	private List<Reservasjon> alleReservasjoner;
 
+	//Teller for kontor ID
+	private static int kontorNummerCounter = 1;
+	
 	/**
 	 * Constructor to create an office.
 	 * 
@@ -31,6 +33,7 @@ public class Kontor {
 		this.adresse = adresse;
 		this.kontorNummer = kontorNummerCounter++;
 		this.bilerTilgjengelig = new ArrayList<>();
+		this.alleReservasjoner = new ArrayList<>();
 	}
 	
    
@@ -45,12 +48,12 @@ public class Kontor {
      * objekt i "bilerTilgjengelig-arrayet".
      * @param bil
      */
-    public void bilUt(Bil bil) {
+    public void reserverBil(Bil bil) {
     	if(bil.erLedig()) {
     		bil.setOpptatt();
     		bilerTilgjengelig.remove(bil);
     	}else {
-    		throw new IllegalStateException("Bilen er allerede utleid");
+    		throw new IllegalStateException("Bilen er allerede utleid"); // MÅ kanskje fikses slik am man kan få mulighet til å velge en annen bil
     	}
     }
     

@@ -91,9 +91,13 @@ public class Bil {
 	public boolean erLedig() {
 		return ledig;
 	}
-
+	
 	public void setLedig() {
 		this.ledig = true;
+	}
+
+	public void setOpptatt() {
+		this.ledig = false;
 	}
 
 

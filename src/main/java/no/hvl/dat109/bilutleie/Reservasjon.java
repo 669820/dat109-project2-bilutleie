@@ -12,8 +12,8 @@ public class Reservasjon {
 	private Kontor utleiekontor;
 	private Bil bil;
 	private Kunde kunde;
-	private LocalDate leieDato;
-	private LocalDate levertInn;
+	private LocalDate leieStartDato;
+	private LocalDate leieSluttDato;
 	private int antallDager;
 	private int km_kjoert;
 	private int antallDagerLaant;
@@ -29,22 +29,23 @@ public class Reservasjon {
 	 * @param leieDato     The rental date for the reservation.
 	 * @param antallDager  The number of rental days for the reservation.
 	 */
-	public Reservasjon(Kontor utleiekontor, Bil bil, Kunde kunde, LocalDate leieDato, int antallDager) {
+	public Reservasjon(Kontor utleiekontor, Bil bil, Kunde kunde, LocalDate leieStartDato, int antallDager) {
 		this.id = teller++;
 		this.utleiekontor = utleiekontor;
 		this.bil = bil;
 		this.kunde = kunde;
-		this.leieDato = LocalDate.now();
+		this.leieStartDato = leieStartDato;
+		this.leieSluttDato = leieStartDato.plusDays(antallDager);
 	}
 	
 	/*
 	 * Regner ut antall km kjørt
 	 */
 	public void avsluttReservasjon(LocalDate returDato, int sluttKilometer) {
-		this.levertInn = returDato;
+		this.leieSluttDato = returDato;
 		this.km_kjoert = sluttKilometer - bil.getKM();
 		this.bil.setLedig();
-		this.antallDagerLaant = (int)ChronoUnit.DAYS.between(leieDato, returDato);
+		this.antallDagerLaant = (int)ChronoUnit.DAYS.between(leieSluttDato, returDato);
 	}
 	
 
@@ -61,8 +62,12 @@ public class Reservasjon {
 		return kunde;
 	}
 
-	public LocalDate getLeieDato() {
-		return leieDato;
+	public LocalDate getLeieStartDato() {
+		return leieStartDato;
+	}
+	
+	public LocalDate getLeieSluttDato() {
+		return leieSluttDato;
 	}
 
 	public int getAntallDager() {
@@ -75,13 +80,13 @@ public class Reservasjon {
 	}
 
 	
-	@Override
-	public String toString() {
-	    return "Reservasjon: Kunde: " + kunde + 
-	    		"\nBil: " + bil + 
-	    		"\nLeie dato: " + leieDato + 
-	    		"\nAntall dager: " + antallDager;
-	}
+//	@Override
+//	public String toString() {
+//	    return "Reservasjon: Kunde: " + kunde + 
+//	    		"\nBil: " + bil + 
+//	    		"\nLeie dato: " + leieDato + 
+//	    		"\nAntall dager: " + antallDager;
+//	}
 
 
 

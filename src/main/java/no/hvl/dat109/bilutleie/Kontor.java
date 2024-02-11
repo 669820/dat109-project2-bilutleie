@@ -14,6 +14,7 @@ public class Kontor {
 	private static int kontorNummerCounter = 1;
 	private int kontorNummer;
 	private List<Bil> bilerTilgjengelig;
+	private List<Reservasjon> alleReservasjoner = new ArrayList<>();
 
 	/**
 	 * Constructor to create an office.
@@ -44,12 +45,25 @@ public class Kontor {
      */
     public void bilUt(Bil bil) {
     	if(bil.erLedig()) {
-    		bil.setLedig(false);
+    		bil.setOpptatt();
     		bilerTilgjengelig.remove(bil);
     	}else {
     		throw new IllegalStateException("Bilen er allerede utleid");
     	}
     }
+    
+    
+
+	public void leggTilReservasjon(Reservasjon reservasjon) {
+        alleReservasjoner.add(reservasjon);
+    }
+	
+	public Reservasjon finnReservasjon(int reservasjonID) {
+		return alleReservasjoner.stream()
+	            .filter(reservasjon -> reservasjon.getID() == reservasjonID)
+	            .findFirst()
+	            .orElse(null);
+	}
     
 	// Getters and setters...
     

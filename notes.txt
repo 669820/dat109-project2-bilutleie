@@ -10,7 +10,7 @@ enhetstetser
 
 program:
 	firma/kontorer:
-	nytt firma etabvleres i norge (alle storbyer og større flyplasser) GOGO GAGA
+	nytt firma etableres i norge (alle storbyer og større flyplasser)
 	for selskapet skall det registreres: navn, tlf, firma-adresse
 	utleiekontor nummereres fortløpende med eget kontor-nummer
 	hvert kontro skal registreres adresse og tlf

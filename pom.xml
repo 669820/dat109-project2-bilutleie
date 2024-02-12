@@ -49,6 +49,20 @@
             <version>${log4jdbc.log4j2.version}</version>
         </dependency>
         
+        <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-test</artifactId>
+    <scope>test</scope>
+    <exclusions>
+        <exclusion>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </exclusion>
+        <!-- Exclude any other conflicting dependencies here -->
+    </exclusions>
+</dependency>
+        
+        
             <dependency>
         <groupId>org.junit.jupiter</groupId>
         <artifactId>junit-jupiter-api</artifactId>

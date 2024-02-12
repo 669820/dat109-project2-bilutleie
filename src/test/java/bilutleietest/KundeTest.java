@@ -9,6 +9,12 @@ import org.junit.jupiter.api.Test;
 
 import no.hvl.dat109.bilutleie.Adresse;
 import no.hvl.dat109.bilutleie.Kunde;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class KundeTest {
     private Kunde kunde;

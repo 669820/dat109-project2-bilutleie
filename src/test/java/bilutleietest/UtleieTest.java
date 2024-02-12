@@ -1,12 +1,12 @@
 package bilutleietest;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 
 import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import no.hvl.dat109.bilutleie.Adresse;
 import no.hvl.dat109.bilutleie.Kontor;

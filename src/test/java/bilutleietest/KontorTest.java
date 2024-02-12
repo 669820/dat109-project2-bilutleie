@@ -1,9 +1,8 @@
 package bilutleietest;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 
@@ -17,7 +16,6 @@ import no.hvl.dat109.bilutleie.Reservasjon;
 import no.hvl.dat109.bilutleie.Utleie;
 import no.hvl.dat109.bilutleie.biler.Bil;
 import no.hvl.dat109.bilutleie.biler.BilA;
-
 public class KontorTest {
     private Kontor kontor;
     private Bil bil;

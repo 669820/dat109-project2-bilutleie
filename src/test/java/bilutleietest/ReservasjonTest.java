@@ -2,6 +2,7 @@ package bilutleietest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.time.LocalDate;
 
@@ -14,7 +15,6 @@ import no.hvl.dat109.bilutleie.Kunde;
 import no.hvl.dat109.bilutleie.Reservasjon;
 import no.hvl.dat109.bilutleie.biler.Bil;
 import no.hvl.dat109.bilutleie.biler.BilA;
-
 public class ReservasjonTest {
     
     private Reservasjon reservasjon;

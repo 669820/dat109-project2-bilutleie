@@ -23,15 +23,15 @@ public class Reservasjon {
 	// Teller for ID
 	private static int teller = 1;
 
-	/**
-	 * Constructor to create a reservation.
-	 * 
-	 * @param utleiekontor The rental office for the reservation.
-	 * @param bil          The car being reserved.
-	 * @param kunde        The customer making the reservation.
-	 * @param leieDato     The rental date for the reservation.
-	 * @param antallDager  The number of rental days for the reservation.
-	 */
+
+/**
+ * ∫
+ * @param utleiekontor
+ * @param bil
+ * @param kunde
+ * @param leieStartDato
+ * @param antallDager
+ */
 	public Reservasjon(Kontor utleiekontor, Bil bil, Kunde kunde, LocalDate leieStartDato, int antallDager) {
 		this.id = teller++;
 		this.utleiekontor = utleiekontor;
@@ -43,9 +43,10 @@ public class Reservasjon {
 		this.antallDagerLaant = 0;
 	}
 	
-	/*
-	 * Regner ut antall km kjørt, setter bilen ledig
-	 */
+/**
+ * 
+ * @param returDato
+ */
 	public void avsluttReservasjon(LocalDate returDato) {
 		this.leieSluttDato = returDato;
 		this.bil.setLedig();

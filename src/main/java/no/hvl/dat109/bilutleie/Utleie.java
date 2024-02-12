@@ -16,7 +16,10 @@ public class Utleie {
 	
 	
 	
-	
+	/**
+	 * 
+	 * @param reservasjon
+	 */
 	public Utleie(Reservasjon reservasjon) {
 	    this.utleieID = reservasjon.getID();
 	    this.reservasjon = reservasjon;
@@ -24,6 +27,11 @@ public class Utleie {
 	    
 	}
 	
+	/**
+	 * 
+	 * @param sluttKilometer
+	 * @param faktiskReturDato
+	 */
     public void registrerRetur(int sluttKilometer, LocalDate faktiskReturDato) {
 
         this.sluttKilometer = sluttKilometer;

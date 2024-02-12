@@ -41,6 +41,11 @@ public class Kontor {
 		this.utleier = new ArrayList<>();
 	}
 
+	/**
+	 * 
+	 * @param reservasjon
+	 * @param kreditkort
+	 */
 	public void opprettUtleie(Reservasjon reservasjon, String kreditkort) {
 		if (kreditkort.length() == 5) { //Sjekk om kredittkort er av gyldig lengde(Her 5)
 			reservasjon.getKunde().setKreditkort(Integer.parseInt(kreditkort));
@@ -56,7 +61,10 @@ public class Kontor {
 			}
 		}
 	
-
+/**
+ * 
+ * @param reservasjon
+ */
 	public void avsluttUtleie(Reservasjon reservasjon) {
 		bilerTilgjengelig.add(reservasjon.getBil());
 
@@ -67,10 +75,20 @@ public class Kontor {
 				+ " får regnig på kr: " + regning);
 	}
 
+	/**
+	 * 
+	 * @param id
+	 * @return
+	 */
 	public Utleie finnUtleie(int id) {
 		return utleier.stream().filter(u -> u.getID() == id).findFirst().orElse(null);
 	}
 
+	/**
+	 * 
+	 * @param bil
+	 * @return boolean
+	 */
 	public boolean reserverBil(Bil bil) {
 		if (bil.erLedig()) {
 			bil.setOpptatt();
@@ -80,11 +98,21 @@ public class Kontor {
 		return false;
 	}
 
+	/**
+	 * 
+	 * @param reservasjonID
+	 * @return ønsket reservasjon/ null
+	 */
 	public Reservasjon finnReservasjon(int reservasjonID) {
 		return alleReservasjoner.stream().filter(reservasjon -> reservasjon.getID() == reservasjonID).findFirst()
 				.orElse(null);
 	}
 
+	/**
+	 * 
+	 * @param dato
+	 * @return liste av biler fra gitt dato
+	 */
 	public List<Bil> finnBilerFra(LocalDate dato) {
 
 		List<Bil> tilgjengeligeBiler = new ArrayList<>(bilerTilgjengelig); // Starter med alle biler som grunnlag

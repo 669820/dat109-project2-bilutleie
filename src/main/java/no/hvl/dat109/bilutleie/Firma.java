@@ -30,7 +30,8 @@ public class Firma {
 	}
 	
 	/**
-	 * Opprettelse av kontor
+	 * 
+	 * @return kontor
 	 */
 	public Kontor leggTilNyttKontor() {
 		Scanner scanner = new Scanner(System.in);

@@ -29,15 +29,20 @@ public class Main {
 		kunder.add(kunde1);
 		kunder.add(kunde2);
 
-		initRegistrering(kunder); //Med innput validering!
+		initRegistrering(kunder); 
 
+		
 	}
-
+	/*
+ 	* Opprettelse av firma
+ 	*/
 	public static void initFirma() {
 		Adresse adresse = new Adresse("Gateveien 1", "5000", "Bergen");
 		firma = new Firma("Gurkemeie Bilutleie", "+47 98765432", adresse);
 	}
-
+	/*
+ 	* Oppretter 2 oppstartskontor og plasserer biler hos dem
+ 	*/
 	public static void opprettStartKontor() {
 
 		Adresse adresse1 = new Adresse("Festplassen 21", "5142", "Bergen");
@@ -69,6 +74,9 @@ public class Main {
 
 	}
 
+	/*
+	 * Med innput validering! Lar alle opprettede kunder registrere seg og oppretter utleie fra reservasjonene
+	 */
 	public static void initRegistrering(List<Kunde> kunder) {
 		List<Kontor> kontor = firma.getKontor();
 		Scanner scanner = new Scanner(System.in);
@@ -125,6 +133,11 @@ public class Main {
 
 	}
 	
+	/**
+	 * 
+	 * @param scanner. kredritt validering
+	 * @return
+	 */
 	private static String lesKreditt(Scanner scanner) {
 	    String brukerInn;
 	    while (true) {
@@ -141,6 +154,12 @@ public class Main {
 	    return brukerInn;
 	}
 	
+	/**
+	 * 
+	 * @param ledigBiler
+	 * @param antallDager
+	 * @return Liste av alle tilgjenlige biler fra en gitt dato
+	 */
 	private static String lagBilerOgPrisListe(List<Bil> ledigBiler, int antallDager) {
 	    StringBuilder bilerOgPris = new StringBuilder();
 	    for (int i = 0; i < ledigBiler.size(); i++) {
@@ -152,10 +171,20 @@ public class Main {
 	    return bilerOgPris.toString();
 	}
 
+	/**
+	 * 
+	 * @param dato
+	 * @return validert brukerinput
+	 */
 	private static boolean validerDato(LocalDate dato) {
 		return !dato.isBefore(LocalDate.now());
 	}
 
+	/**
+	 * 
+	 * @param scanner
+	 * @return ferdig valdiert dato fra brukerinput
+	 */
 	public static LocalDate lesDatoFraBruker(Scanner scanner) {
 	    while (true) { // Loop til gyldig dato er oppgitt
 	        System.out.println("Vennligst oppgi en dato i formatet ÅÅÅÅ-MM-DD (for eksempel 2024-12-24) for når du ønsker å leie:");
@@ -173,10 +202,19 @@ public class Main {
 	    }
 	}
 	
+	/**
+	 * 
+	 * @param kontorValg
+	 * @return gyldig valg av kontor
+	 */
 	private static boolean validerKontorValg(int kontorValg) {
 		return kontorValg < 0 || kontorValg >= firma.getKontor().size();	
 		}
 
+	/**
+	 * 
+	 * @return Strig-format av firmaets kontorer
+	 */
 	private static String getKontorString() {
 		String kontorString = "";
 		for (int i = 0; i < firma.getKontor().size(); i++) {
@@ -185,6 +223,11 @@ public class Main {
 		return kontorString;
 	}
 
+	/**
+	 * 
+	 * @param kontorString
+	 * @return Velkomstmelding med kontorvalg
+	 */
 	private static String velkommenValg(String kontorString) {
 
 		String velkommen = "Velkommen til " + firma.getNavn() + "!" + "\nDu kan velge mellom "
@@ -195,12 +238,24 @@ public class Main {
 		return velkommen;
 	}
 
+	/**
+	 * 
+	 * @param reservasjon
+	 * @param brukerInn
+	 * Opretter utleie fra reservasjon og bruker kreditt
+	 */
 	private static void initUtleie(Reservasjon reservasjon, String brukerInn) {
 
 		reservasjon.getUtleiekontor().opprettUtleie(reservasjon, brukerInn);
 
 	}
 
+	/**
+	 * 
+	 * @param dato
+	 * @param kontor
+	 * @return samler alle tilgjenlige biler for et kontor i en liste fra en gitt dato∫
+	 */
 	private static List<Bil> finnLedigBiler(LocalDate dato, int kontor) {
 		return firma.getKontor().get(kontor).finnBilerFra(dato);
 

@@ -48,6 +48,15 @@
             <artifactId>log4jdbc-log4j2-jdbc4.1</artifactId>
             <version>${log4jdbc.log4j2.version}</version>
         </dependency>
+        
+            <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-api</artifactId>
+        <version>5.7.0</version>
+        <scope>test</scope>
+    </dependency>
+    
+    
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -60,6 +69,13 @@
             <version>${rest.assured.version}</version>
             <scope>test</scope>
         </dependency>
+        
+        <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>5.7.0</version>
+        <scope>test</scope>
+    </dependency>
     </dependencies>
     <build>
         <plugins>

@@ -91,7 +91,9 @@ public class Reservasjon {
 		return antallDager;
 	}
 
-
+	public int getAntallDagerLaant() {
+		return this.antallDagerLaant;
+	}
 	public int getID() {
 		return this.id;
 	}

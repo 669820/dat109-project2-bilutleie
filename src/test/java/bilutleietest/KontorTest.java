@@ -44,7 +44,7 @@ public class KontorTest {
 
     @Test
     public void testFinnReservasjon() {
-        kontor.opprettUtleie(reservasjon, bil);
+        kontor.opprettUtleie(reservasjon, "55555");
         Reservasjon funnetReservasjon = kontor.finnReservasjon(reservasjon.getID());
         assertEquals(reservasjon.getID(), funnetReservasjon.getID());
         assertEquals(reservasjon.getUtleiekontor(), funnetReservasjon.getUtleiekontor());

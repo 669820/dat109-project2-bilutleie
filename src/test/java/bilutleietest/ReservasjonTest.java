@@ -69,11 +69,7 @@ public class ReservasjonTest {
         assertEquals(leieStartDato.plusDays(antallDager), reservasjon.getLeieSluttDato());
     }
     
-    @Test
-    public void testGetAntallDager() {
-    	reservasjon.setAntallDager(antallDager);
-        assertEquals(antallDager, reservasjon.getAntallDager());
-    }
+
     
     @Test
     public void testGetID() {

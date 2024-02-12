@@ -49,7 +49,7 @@ public class Reservasjon {
 	public void avsluttReservasjon(LocalDate returDato) {
 		this.leieSluttDato = returDato;
 		this.bil.setLedig();
-		this.antallDagerLaant = (int)ChronoUnit.DAYS.between(leieSluttDato, returDato);
+		this.antallDagerLaant = (int)ChronoUnit.DAYS.between(leieStartDato, returDato);
 		if(antallDagerLaant > antallDager) System.out.println("Lån av bil overskred opprinnelig avtalt dager");
 		this.aktiv = false;
 		utleiekontor.avsluttUtleie(this);

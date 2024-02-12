@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 // Klassen som representerer et firma
-class Firma {
+public class Firma {
 	private String navn;
 	private String telefon;
 	private Adresse adresse;

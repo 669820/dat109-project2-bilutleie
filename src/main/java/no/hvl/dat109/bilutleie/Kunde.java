@@ -9,6 +9,7 @@ public class Kunde {
 	private String etternavn;
 	private Adresse adresse;
 	private String telefon;
+	private int kreditkort;
 
 	/**
 	 * Constructor to create a customer.
@@ -23,6 +24,7 @@ public class Kunde {
 		this.etternavn = etternavn;
 		this.adresse = adresse;
 		this.telefon = telefon;
+		this.kreditkort = 0;
 	}
 
 	// Getters and setters...
@@ -59,5 +61,15 @@ public class Kunde {
 	//ikke riktig, men for testing.
 	public String getAlleKunder() {
 		return fornavn + " " + etternavn + ", tlf: " + telefon;
+	}
+
+	public boolean getKreditkortt() {
+		
+		return false;
+	}
+
+	public void setKreditkort(int kreditkort) {
+		this.kreditkort = kreditkort;
+		
 	}
 }
